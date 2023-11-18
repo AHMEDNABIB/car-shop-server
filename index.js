@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const app = express();
@@ -69,7 +70,7 @@ async function run() {
 
 		app.post("/bookings", async (req, res) => {
 			const booking = req.body;
-			console.log(booking);
+			// console.log(booking);
 			const result = await bookingCollection.insertOne(booking);
 			res.send(result);
 		});
